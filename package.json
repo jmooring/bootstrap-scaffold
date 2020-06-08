@@ -1,0 +1,52 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.7.5",
+    "bootstrap": "^4.4.1",
+    "clean-css-cli": "^4.3.0",
+    "http-server": "^0.12.1",
+    "livereload": "^0.9.1",
+    "node-sass": "^4.13.1",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^6.1.0",
+    "postcss-cli": "^7.1.0"
+  },
+  "scripts": {
+    "css:compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 src/scss/main.scss dist/css/style.css",
+    "css:prefix": "postcss --replace dist/css/style.css",
+    "css:minify": "cleancss --level 1 --source-map --source-map-inline-sources --output dist/css/style.min.css dist/css/style.css",
+    "css:copy": "cp dist/css/style.min.css* public/assets/css/",
+    "css:build": "npm-run-all css:compile css:prefix css:minify css:copy",
+    "css:watch": "onchange src/scss/* -- npm run css:build",
+    "livereload": "livereload 'public' -e 'html,css' -x style.css -d",
+    "http-server": "http-server public",
+    "start": "npm run watch",
+    "watch": "npm-run-all --parallel css:watch livereload http-server"
+  },
+  "browserslist": [
+    ">= 1%",
+    "last 1 major version",
+    "not dead",
+    "Chrome >= 60",
+    "Firefox >= 60",
+    "Edge >= 16.16299",
+    "iOS >= 10",
+    "Safari >= 10",
+    "Android >= 6",
+    "not Explorer <= 11",
+    "not ExplorerMobile <= 11"
+  ],
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {
+        "cascade": false
+      }
+    }
+  }
+}
