@@ -67,8 +67,8 @@ css:watch
 livereload
 > Starts the LiveReload server.
 
-http-server
-> Starts the HTTP server (<http://127.0.0.1:8080>).
+serve
+> Starts the HTTP server (<http://localhost:5000>).
 
 watch
-> Runs css:watch, livereload, and http-server.
+> Runs css:watch, livereload, serve.

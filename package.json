@@ -10,12 +10,12 @@
     "autoprefixer": "^9.7.5",
     "bootstrap": "^4.4.1",
     "clean-css-cli": "^4.3.0",
-    "http-server": "^0.12.1",
     "livereload": "^0.9.1",
     "node-sass": "^4.13.1",
     "npm-run-all": "^4.1.5",
     "onchange": "^6.1.0",
-    "postcss-cli": "^7.1.0"
+    "postcss-cli": "^7.1.0",
+    "serve": "^11.3.2"
   },
   "scripts": {
     "css:compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 src/scss/main.scss dist/css/style.css",
@@ -25,9 +25,9 @@
     "css:build": "npm-run-all css:compile css:prefix css:minify css:copy",
     "css:watch": "onchange src/scss/* -- npm run css:build",
     "livereload": "livereload 'public' -e 'html,css' -x style.css -d",
-    "http-server": "http-server public",
+    "serve": "serve public",
     "start": "npm run watch",
-    "watch": "npm-run-all --parallel css:watch livereload http-server"
+    "watch": "npm-run-all --parallel css:watch livereload serve"
   },
   "browserslist": [
     ">= 1%",
