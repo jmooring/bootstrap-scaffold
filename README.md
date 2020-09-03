@@ -13,7 +13,7 @@ Includes:
 ## Installation
 
 ```bash
-git clone git@github.com:jmooring/bootstrap-scaffold.git
+git clone git@github.com:jmooring/bootstrap-scaffold.git my-project
 cd my-project
 npm install
 npm start
